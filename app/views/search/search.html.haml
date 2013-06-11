@@ -3,3 +3,10 @@
 
 Results for
 = @query
+
+%ul
+- @results.items.each do |item|
+  %li
+    = image_tag item.get_hash('LargeImage')["URL"] if item.get_hash('LargeImage')
+    = item.get('ItemAttributes/Title')
+
