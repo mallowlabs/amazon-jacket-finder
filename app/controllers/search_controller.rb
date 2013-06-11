@@ -3,10 +3,12 @@ class SearchController < ApplicationController
   end
 
   def search
-    @query = params['search']['keyword']
+    @query = params['keyword']
+    @page = (params['page'] || '1')
 
     @results = Amazon::Ecs.item_search(@query, :response_group => 'Medium',
                                                :search_index => 'Music',
-                                               :country => 'jp')
+                                               :country => 'jp',
+                                               :item_page => @page)
   end
 end

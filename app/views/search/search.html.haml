@@ -4,9 +4,42 @@
 Results for
 = @query
 
-%ul
-- @results.items.each do |item|
-  %li
-    = image_tag item.get_hash('LargeImage')["URL"] if item.get_hash('LargeImage')
-    = item.get('ItemAttributes/Title')
+#container
+  - @results.items.each do |item|
+    - image = item.get_hash('LargeImage')
+    - if image
+      .box{:style => 'width:320px'}
+        - title = item.get('ItemAttributes/Title')
+        - height = image["Height"].to_i * 300 / image["Width"].to_i
+        = image_tag image["URL"], {:width => 300, :height => height, :alt => title, :title => title }
+        %br
+        = link_to title, item.get('DetailPageURL'), :target => '_blank'
 
+%nav#page-nav
+  = link_to "", :keyword => @query, :page => (@page.to_i + 1).to_s
+
+:javascript
+  $container = $('#container');
+
+  $container.masonry({
+    itemSelector: '.box'
+  });
+
+  $container.infinitescroll({
+    navSelector  : '#page-nav',
+    nextSelector : '#page-nav a',
+    itemSelector : '.box',
+    loading: {
+        finishedMsg: 'No more pages to load.',
+        img: 'http://i.imgur.com/6RMhx.gif'
+      }
+    },
+
+    function( newElements ) {
+      var $newElems = $( newElements ).css({ opacity: 0 });
+      $newElems.imagesLoaded(function(){
+        $newElems.animate({ opacity: 1 });
+        $container.masonry( 'appended', $newElems, true );
+      });
+    }
+  );
