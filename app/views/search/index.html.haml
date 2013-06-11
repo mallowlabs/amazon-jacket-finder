@@ -1,2 +1,8 @@
 %h1 Search#index
 %p Find me in app/views/search/index.html.haml
+
+= form_for :search, :url => {:controller => :search, :action => :search}, |
+          :html => {:method => :get, :class => 'search-form'} do |form|
+   = text_field :search, :message, {:class => :text, :value => ''}
+   = submit_tag "Search", :class => "submit red button large"
+
