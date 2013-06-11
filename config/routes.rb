@@ -1,4 +1,8 @@
 ArtWorkFinder::Application.routes.draw do
+  get "search/index"
+
+  get "search/search"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +52,7 @@ ArtWorkFinder::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'search#index'
 
   # See how all your routes lay out with "rake routes"
 
