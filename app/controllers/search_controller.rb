@@ -3,5 +3,6 @@ class SearchController < ApplicationController
   end
 
   def search
+    @query = params['search']['keyword']
   end
 end

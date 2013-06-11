@@ -3,6 +3,6 @@
 
 = form_for :search, :url => {:controller => :search, :action => :search}, |
           :html => {:method => :get, :class => 'search-form'} do |form|
-   = text_field :search, :message, {:class => :text, :value => ''}
+   = text_field :search, :keyword, {:class => :text, :value => ''}
    = submit_tag "Search", :class => "submit red button large"
 
