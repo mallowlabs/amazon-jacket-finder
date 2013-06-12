@@ -1,11 +1,9 @@
+.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to 'Amazon Jacket Finder', root_path, :class => 'brand'
+      = render :partial => 'search/form', :locals => {:query => @query, :html_form_class => 'navbar-form pull-right'}
 .main
-  .header
-    = link_to image_tag('logo.png'), root_path
-
-  .info
-    Results for
-    = @query
-
   #container
     - @results.items.each do |item|
       - image = item.get_hash('LargeImage')

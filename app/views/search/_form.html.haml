@@ -1,0 +1,5 @@
+= form_for :search, :url => {:controller => :search, :action => :search}, |
+         :html => {:method => :get, :class => html_form_class} do |form|
+ = text_field_tag :keyword, query || '', :class => :text, :placeholder => 'keyword'
+ = submit_tag "Search", :class => "btn btn-primary", :name => nil
+

@@ -1,7 +1,4 @@
 .top-main
- = image_tag 'logo.png'
- = form_for :search, :url => {:controller => :search, :action => :search}, |
-          :html => {:method => :get, :class => 'form-horizontal'} do |form|
-  = text_field_tag :keyword, '', :class => :text, :placeholder => 'keyword'
-  = submit_tag "Search", :class => "btn btn-primary", :name => nil
+ .top-logo Amazon Jacket Finder
+ = render :partial => 'search/form', :locals => {:query => '', :html_form_class => 'form-horizontal'}
 
