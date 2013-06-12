@@ -1,8 +1,7 @@
-%h1 Search#index
-%p Find me in app/views/search/index.html.haml
-
-= form_for :search, :url => {:controller => :search, :action => :search}, |
-          :html => {:method => :get, :class => 'search-form'} do |form|
-   = text_field_tag :keyword, '', :class => :text
-   = submit_tag "Search", :class => "submit red button large", :name => nil
+.top-main
+ = image_tag 'logo.png'
+ = form_for :search, :url => {:controller => :search, :action => :search}, |
+          :html => {:method => :get, :class => 'form-horizontal'} do |form|
+  = text_field_tag :keyword, '', :class => :text, :placeholder => 'keyword'
+  = submit_tag "Search", :class => "btn btn-primary", :name => nil
 

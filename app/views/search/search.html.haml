@@ -1,28 +1,37 @@
-%h1 Search#search
-%p Find me in app/views/search/search.html.haml
+.main
+  .header
+    = link_to image_tag('logo.png'), root_path
 
-Results for
-= @query
+  .info
+    Results for
+    = @query
 
-#container
-  - @results.items.each do |item|
-    - image = item.get_hash('LargeImage')
-    - if image
-      .box{:style => 'width:320px'}
-        - title = item.get('ItemAttributes/Title')
-        - height = image["Height"].to_i * 300 / image["Width"].to_i
-        = image_tag image["URL"], {:width => 300, :height => height, :alt => title, :title => title }
-        %br
-        = link_to title, item.get('DetailPageURL'), :target => '_blank'
+  #container
+    - @results.items.each do |item|
+      - image = item.get_hash('LargeImage')
+      - if image
+        .box{:style => 'width:320px'}
+          - title = item.get('ItemAttributes/Title')
+          - height = image["Height"].to_i * 300 / image["Width"].to_i
+          - url = item.get('DetailPageURL')
+          .box-image
+            = link_to(image_tag(image["URL"], {:width => 300, :height => height, :alt => title, :title => title }), :target => '_blank')
+          = link_to title, url, :target => '_blank'
 
-%nav#page-nav
-  = link_to "", :keyword => @query, :page => (@page.to_i + 1).to_s
+  %nav#page-nav
+    = link_to "", :keyword => @query, :page => (@page.to_i + 1).to_s
 
 :javascript
   $container = $('#container');
 
   $container.masonry({
     itemSelector: '.box'
+  });
+
+  $container.imagesLoaded( function(){
+    $container.masonry({
+        itemSelector : '.box'
+    });
   });
 
   $container.infinitescroll({
