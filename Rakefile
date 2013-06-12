@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ArtWorkFinder::Application.load_tasks
+AmazonJacketFinder::Application.load_tasks

@@ -1,4 +1,4 @@
-ArtWorkFinder::Application.routes.draw do
+AmazonJacketFinder::Application.routes.draw do
   get "search/index"
 
   get "search/search"
