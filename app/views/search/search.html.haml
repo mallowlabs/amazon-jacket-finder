@@ -13,7 +13,7 @@
           - height = image["Height"].to_i * 300 / image["Width"].to_i
           - url = item.get('DetailPageURL')
           .box-image
-            = link_to(image_tag(image["URL"], {:width => 300, :height => height, :alt => title, :title => title }), :target => '_blank')
+            = link_to(image_tag(image["URL"], {:width => 300, :height => height, :alt => title, :title => title }), url, :target => '_blank')
           = link_to title, url, :target => '_blank'
 
   %nav#page-nav
