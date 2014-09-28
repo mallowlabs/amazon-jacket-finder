@@ -26,7 +26,7 @@ gem 'jquery-rails'
 gem 'haml-rails',   '~> 0.4'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
-gem 'quiet_assets'
+gem 'quiet_assets', group: :development
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
