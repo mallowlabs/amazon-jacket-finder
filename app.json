@@ -1,0 +1,16 @@
+{
+  "name": "amazon-jacket-finder",
+  "description": "A jacket image finding service with Amazon",
+  "repository": "https://github.com/mallowlabs/amazon-jacket-finder/",
+  "env": {
+    "AWS_ACCESS_KEY_ID": {
+      "description": "Input your Amazon Web Service ID",
+      "required": true
+    },
+    "AWS_SECRET_KEY": {
+      "description": "Input your Amazon Web Service Secret Key",
+      "required": true
+    }
+  }
+}
+

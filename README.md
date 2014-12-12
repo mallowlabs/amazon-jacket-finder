@@ -1,5 +1,9 @@
 # Amazon Jacket Finder
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Overview
+
 A web service to find album jackets from Amazon.
 
 ## Requirements
