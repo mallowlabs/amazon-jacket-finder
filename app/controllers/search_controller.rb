@@ -8,10 +8,7 @@ class SearchController < ApplicationController
 
     @items = []
     begin
-      @items = Amazon::Ecs.item_search(@query, :response_group => 'Medium',
-                                                 :search_index => 'Music',
-                                                 :country => 'jp',
-                                                 :item_page => @page).items
+      @items = Item.search_with_retry(@query, @page)
     rescue => e
       logger.error(e.message)
       logger.error(e.backtrace.join("\n"))
