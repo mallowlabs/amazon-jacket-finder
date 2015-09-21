@@ -12,7 +12,7 @@ class Item
       return self.search(keyword, page)
     rescue => e
       retry_count += 1
-      logger.error e.message
+      Rails.logger.error e.message
       if retry_count < 5
         sleep(1)
         retry
